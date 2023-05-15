@@ -317,9 +317,9 @@ layout: list
       loadingEl.remove();
 
       const {
-        choices: [{ text }],
+        choices: [{ delta }],
       } = JSON.parse(data);
-      completion += text;
+      completion += delta.content;
 
       const isCompleted = completion.indexOf("SOURCES:") > -1;
 
