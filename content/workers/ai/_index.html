@@ -319,7 +319,7 @@ layout: list
       const {
         choices: [{ delta }],
       } = JSON.parse(data);
-      completion += delta.content;
+      completion += delta.content || '';
 
       const isCompleted = completion.indexOf("SOURCES:") > -1;
 
