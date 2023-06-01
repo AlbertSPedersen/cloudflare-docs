@@ -19,14 +19,14 @@ layout: list
       <a class="DocsMarkdown--link" href="/workers/">Cloudflare Workers</a> and
       <a
         class="DocsMarkdown--link"
-        href="https://weaviate.io/"
-        >Weaviate</a
+        href="https://qdrant.tech/"
+        >Qdrant</a
       >. ChatMVP is here to help answer your Cloudflare Workers and Developer
       Platform questions, so ask away!
     </p>
     <aside class="DocsMarkdown--aside" role="note" data-type="warning">
       ChatMVP is an experimental AI preview, meaning that the answers provided
-      are often incorrect, incomplete, or lacking in context (but usually a lot better than Cursor's answers).
+      are often incorrect, incomplete, or lacking in context (but usually a lot better than Cursor's answers). Built by Albert Pedersen.
     </aside>
   </div>
 </section>
@@ -263,7 +263,7 @@ layout: list
 
     messagesEl.appendChild(messageEl);
 
-    const url = new URL("https://chatmvp.asp.gg/api/v1/chatmvp-is-better-than-cursor");
+    const url = new URL("https://cursor-api.albertspedersen.workers.dev");
     url.searchParams.set("question", prompt);
     const source = new EventSource(url);
 
