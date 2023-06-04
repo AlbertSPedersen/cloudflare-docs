@@ -318,34 +318,13 @@ layout: list
 
       loadingEl.remove();
 
-      const {
-        choices: [{ delta }],
-      } = JSON.parse(data);
+      const { choices: [{ delta }] } = JSON.parse(data);
+     
       completion += delta.content || '';
 
-      const isCompleted = completion.indexOf("SOURCES:") > -1;
+      responseTextEl.innerHTML = markdown.makeHtml(completion);
 
-      const [answer, sourcesString] = completion.split("SOURCES:");
-
-      responseTextEl.innerHTML = markdown.makeHtml(answer);
-
-      if (sourcesString) {
-        sourcesEl.style.display = "block";
-        sources = sourcesString
-          .trim()
-          .split(", ")
-          .map((s) => sourceToUrl(s))
-          .filter((url) => url !== "https://developers.cloudflare.com/N/A");
-      }
-
-      sourcesEl.innerHTML =
-        "<li>These sources might provide additional context:</li>" +
-        sources
-          .map(
-            (url) =>
-              `<li class="source"><img src="/icons/icon-48x48.png" /><a href="${url}">${url}</a></li>`
-          )
-          .join("");
+      console.log(completion)
     };
   });
 </script>
