@@ -306,8 +306,9 @@ layout: list
     };
 
     var markdown = new showdown.Converter({
-      strikethrough: false,
+      strikethrough: true,
       tables: true,
+      underline: true
     });
 
     source.onmessage = ({ data }) => {
