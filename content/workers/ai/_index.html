@@ -305,7 +305,10 @@ layout: list
       source.close();
     };
 
-    var markdown = new showdown.Converter();
+    var markdown = new showdown.Converter({
+      strikethrough: false,
+      tables: true,
+    });
 
     source.onmessage = ({ data }) => {
       if (data === "[DONE]") {
