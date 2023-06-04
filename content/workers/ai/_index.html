@@ -327,7 +327,7 @@ layout: list
 
       const [answer, sourcesString] = completion.split("SOURCES:");
 
-      responseTextEl.innerHTML = markdown.makeHtml(answer.trim());
+      responseTextEl.innerHTML = markdown.makeHtml(answer);
 
       if (sourcesString) {
         sourcesEl.style.display = "block";
