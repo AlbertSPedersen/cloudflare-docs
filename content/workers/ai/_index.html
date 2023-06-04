@@ -233,6 +233,8 @@ layout: list
   }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js" integrity="sha512-LhccdVNGe2QMEfI3x4DVV3ckMRe36TfydKss6mJpdHjNFiV07dFpS2xzeZedptKZrwxfICJpez09iNioiSZ3hA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
   const formEl = document.getElementById("ai-form");
   const promptEl = document.getElementById("prompt");
@@ -266,6 +268,8 @@ layout: list
     const url = new URL("https://cursor-api.albertspedersen.workers.dev");
     url.searchParams.set("question", prompt);
     const source = new EventSource(url);
+
+    source.
 
     let completion = "";
     let sources = [];
@@ -303,6 +307,8 @@ layout: list
       source.close();
     };
 
+    var markdown = new showdown.Converter();
+
     source.onmessage = ({ data }) => {
       if (data === "[DONE]") {
         source.close();
@@ -323,7 +329,7 @@ layout: list
 
       const [answer, sourcesString] = completion.split("SOURCES:");
 
-      responseTextEl.innerText = answer.trim();
+      responseTextEl.innerHTML = markdown.makeHtml(answer.trim());
 
       if (sourcesString) {
         sourcesEl.style.display = "block";
